@@ -9,28 +9,39 @@ author_profile: true
   <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
 {% endif %}
 
-{% include base_path %}
+---
 
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
-  {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endif %}
+## <i class="fas fa-file-alt"></i> Publications
+
+### <i class="fas fa-journal-whills"></i> Journal Articles
+
+1. **Muhammad Ameen**, Riaz Ullah Khan, Pengfei Wang, Sidra Batool, and Masoud Alajmi, *Addressing Unreliable Local Models in Federated Learning Through Unlearning*, **Neural Networks**, vol. 180, Art. 106688, December 2024.
+
+2. **Muhammad Ameen**, Pengfei Wang, Weijian Su, Xiaopeng Wei, and Qiang Zhang, *Speed Up Federated Unlearning with Temporary Local Models*, **IEEE Transactions on Sustainable Computing**, vol. 10, no. 5, pp. 921–936, September–October 2025.
+
+3. Weijian Su, Pengfei Wang, Zhiyi Wang, **Muhammad Ameen**, Xiangrong Tong, and Qiang Zhang, *F2UL: Fairness-aware Federated Unlearning for Data Trading*, **IEEE Transactions on Mobile Computing**, vol. 23, no. 12, pp. 13539–13555, December 2024.
+
+4. Zhenwei Wang, Pengfei Wang, Guangjie Han, Jianxin Zhang, Qing Lin, **Muhammad Ameen**, and Qiang Zhang, *Inverse Feature Consistency Federated Unlearning for Vision-Language Models*, **IEEE Transactions on Mobile Computing**, Early Access, pp. 1–18, 2025.
+
+5. Sidra Batool, Saima Noreen, Dong Bo, Danish Ali, and **Muhammad Ameen**, *Electroosmotically-Driven Heat Transfer Analysis of Micropolar Fluid in a Tapered Channel Through Modified Darcy’s Porosity*, **Special Topics & Reviews in Porous Media**, vol. 16, no. 4, pp. 69–86, January 2025.
+
+
+### <i class="fas fa-microphone"></i> Conference Papers
+
+1. **Muhammad Ameen** and Pengfei Wang, *Lightweight Federated Unlearning for IoT Sensing Systems*, **IEEE 20th International Conference on Mobility, Sensing and Networking (MSN)**, pp. 1–8, December 2024.
+
+2. Pengfei Wang, **Muhammad Ameen**, Mingshu Zhao, Pai Liu, and Qiang Zhang, *Eliminating Poor-quality Data Impacts from Multiple Participants with Federated Unlearning*, **IEEE/ACM International Symposium on Quality of Service (IWQoS)**, pp. 1–10, July 2025.
+
+3. Zishuo Song, Yuzhu Pan, Mingshu Zhao, **Muhammad Ameen**, Zhenwei Wang, and Pengfei Wang, *Trustworthy Distributed Decision-making for Multi-view Sensing Data*, **International Workshop on AIoT Systems (AIoTSys)**, July 2025. *(Accepted and presented)*
+
+4. Hasin Bano, **Muhammad Ameen***, Muntazir Mehdi, Amaad Hussain, and Pengfei Wang, *Federated Unlearning and Server Right to Forget: Handling Unreliable Client Contributions*, In: Santosh, K. et al. (eds.), **Recent Trends in Image Processing and Pattern Recognition (RTIP2R)**, Communications in Computer and Information Science (CCIS), pp. 393–410, Springer, January 2023. (*Corresponding author*)
+
+5. **Muhammad Ameen**, Amaad Hussain, Rukhsana, Maqbool Hussain, and Songyoung Lee, *BioKG: An Analytical Web-based Portal for Clinical Decision Support Using Clinical and Genomic Data*, **International Conference on Next-Generation Computing (ICNGC)**, pp. 112–117, South Korea, 2021.
+
+
+### <i class="fas fa-hourglass-half"></i> Manuscripts Under Review
+
+1. **Muhammad Ameen**, Jing Yang, Hussain Nizam, Sidra Batool, Zaffar Ahmed Shaikh, and Amel Ksibi, *DEFul: Interaction-aware Federated Unlearning for Data Exchange Networks*, **IEEE Internet of Things Journal**, under review (2026).
 
 
 
