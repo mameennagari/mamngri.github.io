@@ -1,0 +1,133 @@
+---
+layout: archive
+permalink: /gallery/
+author_profile: true
+---
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  /* Gallery Button */
+  .gallery-btn {
+    display: block;
+    margin: 0 auto 30px auto;
+    padding: 12px 25px;
+    font-size: 18px;
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .gallery-btn:hover {
+    background-color: #005bb5;
+  }
+
+  /* Gallery Grid */
+  .gallery {
+    display: none; /* hidden initially */
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 0 15px 50px 15px;
+  }
+
+  .gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  }
+
+  /* Lightbox Overlay */
+  .lightbox {
+    display: none;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+
+  .lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    transition: transform 0.3s;
+  }
+  .lightbox:active img {
+    transform: scale(0.95);
+  }
+
+  @media(max-width:600px) {
+    .gallery {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+  }
+</style>
+</head>
+<body>
+
+<h1>My Academic Gallery</h1>
+<button class="gallery-btn" onclick="openGallery()">Open Gallery</button>
+
+<div class="gallery" id="gallery">
+  <img src="images/graduation.jpg" alt="Graduation">
+  <img src="images/conference1.jpg" alt="Conference 1">
+  <img src="images/conference2.jpg" alt="Conference 2">
+  <img src="images/lab.jpg" alt="Lab Work">
+  <img src="images/project.jpg" alt="Project Presentation">
+  <!-- Add more images as needed -->
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+  function openGallery() {
+    document.getElementById('gallery').style.display = 'grid';
+  }
+
+  const galleryImages = document.querySelectorAll('.gallery img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  galleryImages.forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.style.display = 'flex';
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
