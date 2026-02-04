@@ -11,37 +11,24 @@ author_profile: true
     padding: 0;
   }
 
-  h1 {
+  h1, h2 {
     text-align: center;
     margin: 20px 0;
   }
 
-  /* Gallery Button */
-  .gallery-btn {
-    display: block;
-    margin: 0 auto 30px auto;
-    padding: 12px 25px;
-    font-size: 18px;
-    background-color: #0073e6;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  .gallery-btn:hover {
-    background-color: #005bb5;
+  /* Section headings */
+  h2 {
+    margin-top: 40px;
   }
 
   /* Gallery Grid */
   .gallery {
-    display: none; /* hidden initially */
-    max-width: 1200px;
-    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 15px;
-    padding: 0 15px 50px 15px;
+    max-width: 1000px;
+    margin: 0 auto 50px auto;
+    padding: 0 15px;
   }
 
   .gallery img {
@@ -87,19 +74,34 @@ author_profile: true
     }
   }
 </style>
+</head>
+<body>
 
 <h1>My Academic Gallery</h1>
-<button class="gallery-btn" onclick="openGallery()">Open Gallery</button>
 
-<div class="gallery" id="gallery">
-  <img src="images/o.jpg" alt="Under-Grad Graduation">
+<h2>Undergraduate</h2>
+<div class="gallery" id="undergrad-gallery">
+  <img src="images/o.jpg" alt="Undergraduate 1">
+  <img src="images/o.jpg" alt="Undergraduate 2">
+  <img src="images/o.jpg" alt="Undergraduate 3">
+</div>
+
+<h2>Postgraduate</h2>
+<div class="gallery" id="postgrad-gallery">  
+    <img src="images/o.jpg" alt="Under-Grad Graduation">
   <img src="images/e.jpg" alt="Conference 1">
   <img src="images/i.jpg" alt="Conference 2">
   <img src="images/n.jpg" alt="Lab Work">
   <img src="images/f.jpg" alt="Project Presentation">
   <img src="images/b.jpg" alt="Project Presentation">
   <img src="images/a.jpg" alt="Project Presentation">
-  <!-- Add more images as needed -->
+</div>
+
+<h2>PhD</h2>
+<div class="gallery" id="phd-gallery">
+  <img src="images/phd1.jpg" alt="PhD 1">
+  <img src="images/phd2.jpg" alt="PhD 2">
+  <img src="images/phd3.jpg" alt="PhD 3">
 </div>
 
 <!-- Lightbox -->
@@ -108,10 +110,7 @@ author_profile: true
 </div>
 
 <script>
-  function openGallery() {
-    document.getElementById('gallery').style.display = 'grid';
-  }
-
+  // Select all images in all galleries
   const galleryImages = document.querySelectorAll('.gallery img');
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
