@@ -23,7 +23,7 @@ repository               : "mameennagari.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "/images/ameen.png"
+  avatar           : "profile.png"
   name             : "Muhammad Ameen"
   pronouns         : # example: "she/her"  
   bio              : "PhD Student"
