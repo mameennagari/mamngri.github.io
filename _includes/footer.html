@@ -1,29 +1,6 @@
 {% include base_path %}
 
-<footer style="background:#f9f9f9; padding:10px 0; text-align:center; font-size:14px; line-height:1.4; border-top:1px solid #ddd;">
-
-  {% if site.author.github or site.author.bitbucket or site.atom_feed.hide != true %}
-  <div class="footer-follow" style="margin-bottom:5px;">
-    <ul class="social-icons" style="list-style:none; padding:0; margin:0; display:inline-flex; gap:10px; justify-content:center; align-items:center;">
-      {% if site.data.ui-text[site.locale].follow_label %}
-        <li style="font-weight:bold;">{{ site.data.ui-text[site.locale].follow_label }}</li>
-      {% endif %}
-      {% if site.author.github %}
-        <li><a href="https://github.com/{{ site.author.github }}" style="text-decoration:none; color:#333;"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
-      {% endif %}
-      {% if site.author.bitbucket %}
-        <li><a href="https://bitbucket.org/{{ site.author.bitbucket }}" style="text-decoration:none; color:#333;"><i class="fab fa-bitbucket" aria-hidden="true"></i> Bitbucket</a></li>
-      {% endif %}
-      {% if site.atom_feed.hide != true %}
-        <li><a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}" style="text-decoration:none; color:#333;"><i class="fa fa-rss-square" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}</a></li>
-      {% endif %}
-    </ul>
-  </div>
-  {% endif %}
-
-  <div class="footer-info" style="margin-top:2px;">
-    <p style="margin:0;">© 2026 Muhammad Ameen. All rights reserved.</p>
-    <p style="margin:0;">Site last updated {{ site.time | date: "%Y-%m-%d" }}</p>
-  </div>
-
+<footer style="background:#f9f9f9; width:100%; padding:10px 0; text-align:center; font-size:14px; line-height:1.4; border-top:1px solid #ddd;">
+  <p style="margin:0;">© 2026 Muhammad Ameen. All rights reserved.</p>
+  <p style="margin:0;">Site last updated {{ site.time | date: "%Y-%m-%d" }}</p>
 </footer>
