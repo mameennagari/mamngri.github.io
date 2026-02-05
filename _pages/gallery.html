@@ -79,8 +79,30 @@ h1 i {
   transform: scale(1.02);
 }
 
-.lightbox.show {
-  display: flex;
+/* Lightbox navigation buttons */
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  padding: 10px;
+  transition: color 0.3s ease;
+}
+
+.lightbox-nav:hover {
+  color: #ff7f0e;
+}
+
+.lightbox-prev {
+  left: 20px;
+}
+
+.lightbox-next {
+  right: 20px;
 }
 
 .lightbox-close {
@@ -98,24 +120,12 @@ h1 i {
   color: #ff7f0e;
 }
 
-/* === Caption Styling === */
-.caption {
-  margin-top: 8px;
-  font-weight: 600;
-  font-size: 14px;
-  text-align: center;
-  color: #555;
-}
-
-.subcaption {
-  font-size: 12px;
-  color: #888;
-}
-
-/* === Responsive === */
 @media(max-width:600px) {
   .award-thumb {
     height: 140px;
+  }
+  .lightbox-nav {
+    font-size: 30px;
   }
 }
 </style>
@@ -126,21 +136,9 @@ h1 i {
 <div class="gallery-section">
   <h2>Undergraduate</h2>
   <div class="awards-grid" id="undergrad-gallery">
-    <div style="text-align:center;">
-      <img src="/images/o.jpg" class="award-thumb" alt="Undergrad Image 1" data-caption="Graduation Ceremony 2021 - BU">
-      <p class="caption">Graduation Ceremony</p>
-      <p class="subcaption">BU, 2021</p>
-    </div>
-    <div style="text-align:center;">
-      <img src="/images/0.jpg" class="award-thumb" alt="Undergrad Image 2" data-caption="Research Presentation 2019 - BU">
-      <p class="caption">Research Presentation</p>
-      <p class="subcaption">BU, 2019</p>
-      <div style="text-align:center;">
-      <img src="/images/o.jpg" class="award-thumb" alt="Undergrad Image 2" data-caption="Research Presentation 2019 - DUT">
-      <p class="caption">Research Presentation</p>
-      <p class="subcaption">DUT, 2019</p>
-    </div>
-    </div>
+    <img src="/images/undergrad1.jpg" class="award-thumb" alt="">
+    <img src="/images/undergrad2.jpg" class="award-thumb" alt="">
+    <img src="/images/undergrad3.jpg" class="award-thumb" alt="">
   </div>
 </div>
 
@@ -148,16 +146,9 @@ h1 i {
 <div class="gallery-section">
   <h2>Postgraduate</h2>
   <div class="awards-grid" id="postgrad-gallery">
-    <div style="text-align:center;">
-      <img src="/images/postgrad1.jpg" class="award-thumb" alt="Postgrad Image 1" data-caption="Master Thesis Defense 2023">
-      <p class="caption">Thesis Defense</p>
-      <p class="subcaption">DUT, 2023</p>
-    </div>
-    <div style="text-align:center;">
-      <img src="/images/postgrad2.jpg" class="award-thumb" alt="Postgrad Image 2" data-caption="Conference Presentation 2022">
-      <p class="caption">Conference Presentation</p>
-      <p class="subcaption">National Level, 2022</p>
-    </div>
+    <img src="/images/postgrad1.jpg" class="award-thumb" alt="">
+    <img src="/images/postgrad2.jpg" class="award-thumb" alt="">
+    <img src="/images/postgrad3.jpg" class="award-thumb" alt="">
   </div>
 </div>
 
@@ -165,54 +156,67 @@ h1 i {
 <div class="gallery-section">
   <h2>PhD</h2>
   <div class="awards-grid" id="phd-gallery">
-    <div style="text-align:center;">
-      <img src="/images/phd1.jpg" class="award-thumb" alt="PhD Image 1" data-caption="PhD Defense 2025">
-      <p class="caption">PhD Defense</p>
-      <p class="subcaption">DUT, 2025</p>
-    </div>
-    <div style="text-align:center;">
-      <img src="/images/phd2.jpg" class="award-thumb" alt="PhD Image 2" data-caption="International Conference 2024">
-      <p class="caption">International Conference</p>
-      <p class="subcaption">2024</p>
-    </div>
+    <img src="/images/phd1.jpg" class="award-thumb" alt="">
+    <img src="/images/phd2.jpg" class="award-thumb" alt="">
+    <img src="/images/phd3.jpg" class="award-thumb" alt="">
   </div>
 </div>
 
 <!-- === Lightbox === -->
 <div id="lightbox" class="lightbox">
   <a href="#" class="lightbox-close">&times;</a>
+  <span class="lightbox-nav lightbox-prev">&#10094;</span>
+  <span class="lightbox-nav lightbox-next">&#10095;</span>
   <img id="lightbox-img" src="" alt="">
-  <p id="lightbox-caption" style="color:#fff; text-align:center; margin-top:10px;"></p>
 </div>
 
 <script>
-// Select all thumbnails
-const thumbnails = document.querySelectorAll('.award-thumb');
+// Lightbox functionality
+let currentGallery = [];
+let currentIndex = 0;
+
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
-const lightboxCaption = document.getElementById('lightbox-caption');
 const closeBtn = document.querySelector('.lightbox-close');
+const prevBtn = document.querySelector('.lightbox-prev');
+const nextBtn = document.querySelector('.lightbox-next');
 
-// Show lightbox on click
-thumbnails.forEach(img => {
-  img.addEventListener('click', () => {
-    lightbox.classList.add('show');
-    lightboxImg.src = img.src;
-    lightboxImg.alt = img.alt;
-    lightboxCaption.textContent = img.dataset.caption || img.alt;
+// Open lightbox
+function openLightbox(galleryImages, index) {
+  currentGallery = galleryImages;
+  currentIndex = index;
+  lightboxImg.src = currentGallery[currentIndex].src;
+  lightbox.classList.add('show');
+}
+
+// Show previous image
+function showPrev() {
+  currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+  lightboxImg.src = currentGallery[currentIndex].src;
+}
+
+// Show next image
+function showNext() {
+  currentIndex = (currentIndex + 1) % currentGallery.length;
+  lightboxImg.src = currentGallery[currentIndex].src;
+}
+
+// Close lightbox
+function closeLightbox() {
+  lightbox.classList.remove('show');
+}
+
+// Event listeners for thumbnails
+document.querySelectorAll('.gallery-section').forEach(section => {
+  const images = section.querySelectorAll('img');
+  images.forEach((img, index) => {
+    img.addEventListener('click', () => openLightbox(images, index));
   });
 });
 
-// Close lightbox
-closeBtn.addEventListener('click', e => {
-  e.preventDefault();
-  lightbox.classList.remove('show');
-});
-
-// Close by clicking outside the image
-lightbox.addEventListener('click', e => {
-  if (e.target === lightbox) {
-    lightbox.classList.remove('show');
-  }
-});
+// Navigation
+prevBtn.addEventListener('click', showPrev);
+nextBtn.addEventListener('click', showNext);
+closeBtn.addEventListener('click', e => { e.preventDefault(); closeLightbox(); });
+lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
 </script>
