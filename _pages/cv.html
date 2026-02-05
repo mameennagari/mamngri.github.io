@@ -8,5 +8,172 @@ author_profile: true
 {% if site.author.googlescholar %}
   <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
 {% endif %}
-
 ---
+<hr>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.4;
+    margin: 20px;
+    background: #fff;
+  }
+  h1, h2, h3, h4 {
+    color: #0099cc;
+    margin: 0.5em 0 0.3em 0;
+  }
+  h2 {
+    border-bottom: 2px solid #00bfff;
+    padding-bottom: 0.2em;
+    margin-top: 1em;
+  }
+  h3 {
+    margin-top: 0.8em;
+  }
+  p {
+    margin: 0.2em 0;
+  }
+  a {
+    color: #00bfff;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .contact a {
+    margin-right: 15px;
+  }
+  ul {
+    padding-left: 20px;
+  }
+  li {
+    margin-bottom: 0.4em;
+  }
+  .year-badge {
+    display: inline-block;
+    background-color: #ccf0f9;
+    border: 1px solid #00bfff;
+    border-radius: 3px;
+    padding: 0 5px;
+    font-size: 0.8em;
+    margin-left: 5px;
+  }
+  .section {
+    margin-top: 1.2em;
+  }
+  .subsection {
+    margin-top: 0.8em;
+  }
+  .cv-button {
+    display: inline-block;
+    padding: 0.4em 1em;
+    background: #00bfff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px 0;
+  }
+  .cv-content {
+    display: none;
+    margin-top: 20px;
+  }
+</style>
+
+<!-- CV Button -->
+<div class="cv-button" onclick="toggleCV()">View CV</div>
+
+<!-- CV Content -->
+<div class="cv-content" id="cvContent">
+
+<h1>Muhammad Ameen</h1>
+<div class="contact">
+  <span><i class="fa fa-phone"></i> +86-13009405273</span>
+  <span><i class="fa fa-weixin"></i> mamngri</span>
+  <br>
+  <span><i class="fa fa-envelope"></i> <a href="mailto:mamngri@gmail.com">mamngri@gmail.com</a></span>
+  <span><i class="fa fa-linkedin"></i> <a href="https://www.linkedin.com/in/muhammad-ameen-a25879155">LinkedIn</a></span>
+  <span><i class="fa fa-graduation-cap"></i> <a href="https://scholar.google.com/citations?user=YOUR_PROFILE_ID">Google Scholar</a></span>
+  <span><i class="fa fa-globe"></i> <a href="https://mameennagari.github.io">Website</a></span>
+</div>
+
+<div class="section">
+  <h2>Professional Summary</h2>
+  <p>I am a researcher focused on privacy-preserving distributed machine learning, with expertise in Federated Learning, Federated Unlearning, and Semantic Communication. I have an MS in Computer Science and Technology from Dalian University of Technology, China. I have authored multiple publications in top-tier journals including IEEE Transactions on Mobile Computing, Neural Networks, and IEEE Transactions on Sustainable Computing. My master’s work was recognized with awards such as the Outstanding Master’s Thesis Award and Outstanding Graduate Award. I possess strong technical skills in Python (PyTorch, NumPy) and have 2+ years of professional experience. I actively contribute as a reviewer for top-tier journals and am seeking a PhD research position in related fields.</p>
+</div>
+
+<div class="section">
+  <h2>Academic Qualifications</h2>
+  <div class="subsection">
+    <h3>Master of Computer Science and Technology (MSCS)</h3>
+    <p>Dalian University of Technology, Dalian, China (Sep 2022 -- Jul 2025)</p>
+    <p>Major: Computer Science | CGPA: 3.66/4.00</p>
+    <p>Thesis: Research on Model Robustness Optimized Federated Unlearning</p>
+    <p>Honors: Outstanding Master’s Thesis Award; Outstanding Graduate Award (Top 5%)</p>
+  </div>
+  <div class="subsection">
+    <h3>Bachelor of Science in Information Technology (BSIT)</h3>
+    <p>Bahria University, Islamabad, Pakistan (Feb 2017 -- Feb 2021)</p>
+    <p>Major: Information Technology | CGPA: 3.15/4.00</p>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Publications</h2>
+  <div class="subsection">
+    <h3>Journal Papers</h3>
+    <ul>
+      <li><b>Muhammad Ameen</b>, Riaz Ullah Khan, Pengfei Wang, Sidra Batool, Masoud Alajmi. <i>Addressing Unreliable Local Models in Federated Learning Through Unlearning</i>. <b>Neural Networks</b> <span class="year-badge">2024</span></li>
+      <li><b>Muhammad Ameen</b>, Pengfei Wang, Weijian Su, Xiaopeng Wei, Qiang Zhang. <i>Speed up Federated Unlearning with Temporary Local Models</i>. <b>IEEE Trans. Sustain. Comput.</b> <span class="year-badge">2025</span></li>
+      <li>Weijian Su, Pengfei Wang, Zhiyi Wang, <b>Muhammad Ameen</b>, Xiangrong Tong, Qiang Zhang. <i>F2UL: Fairness-aware Federated Unlearning for Data Trading</i>. <b>IEEE Trans. Mob. Comput.</b> <span class="year-badge">2024</span></li>
+      <li>Zhenwei Wang, Pengfei Wang, Guangjie Han, Jianxin Zhang, Qing Lin, <b>Muhammad Ameen</b>, Qiang Zhang. <i>Inverse Feature Consistency Federated Unlearning for Vision-Language Model</i>. <b>IEEE Trans. Mob. Comput.</b> <span class="year-badge">2025</span></li>
+      <li>Sidra Batool, Saima Noreen, Dong Bo, Danish Ali, <b>Muhammad Ameen</b>. <i>Electroosmotically-Driven Heat Transfer Analysis of Micropolar Fluid in Tapered Channel Through Modified Darcy's Porosity</i>. <b>Special Topics & Rev. Porous Media</b> <span class="year-badge">2025</span></li>
+    </ul>
+  </div>
+  <div class="subsection">
+    <h3>Conference Papers</h3>
+    <ul>
+      <li><b>Muhammad Ameen</b> and Pengfei Wang. <i>Lightweight Federated Unlearning for IoT Sensing Systems</i>. IEEE MSN, Dec. <span class="year-badge">2024</span></li>
+      <li>Pengfei Wang, <b>Muhammad Ameen</b>, Mingshu Zhao, Pai Liu, Qiang Zhang. <i>Eliminating Poor-quality Data Impacts from Multiple Participants with Federated Unlearning</i>. IEEE/ACM IWQoS, Jul. <span class="year-badge">2025</span></li>
+      <li>Zishuo Song, Yuzhu Pan, Mingshu Zhao, <b>Muhammad Ameen</b>, Zhenwei Wang, Pengfei Wang. <i>Trustworthy Distributed Decision-making for Multi-view Sensing Data</i>. AIoTSys, Jul. <span class="year-badge">2025</span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Professional Experience</h2>
+  <ul>
+    <li><b>IT Technical Support Engineer</b>, Swansea Enterprises, Rawalpindi, Pakistan (Jun 2021 -- Aug 2022) <br> Provided end-to-end technical support for enterprise IT infrastructure, system configuration, software installation, and maintenance.</li>
+    <li><b>IT Intern</b>, Bahria University Endowment Fund Trust, Islamabad (Sep 2020 -- Mar 2021) <br> Assisted IT department with data entry, system monitoring, and technical presentations.</li>
+    <li><b>Customer Service Representative</b>, Amigos Outreach, Rawalpindi, Pakistan (Sep 2018 -- Dec 2019) <br> Managed client communications and service requests.</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>Skills</h2>
+  <p><b>Programming Languages:</b> Python (PyTorch), C++, C#</p>
+  <p><b>Machine Learning Implementation:</b> Federated learning pipelines, unlearning mechanisms, distributed training workflows, privacy-preserving model evaluation</p>
+  <p><b>Software & Frameworks:</b> PyTorch, NumPy, LaTeX, Git</p>
+</div>
+
+<div class="section">
+  <h2>Awards</h2>
+  <ul>
+    <li>2nd Prize -- Artificial Intelligence+ Special Track, 19th Challenge Cup China Mobile National UG Competition <span class="year-badge">2025</span></li>
+    <li>Special Prize -- 17th Challenge Cup, Liaoning Province <span class="year-badge">2025</span></li>
+    <li>1st Prize -- National International Graduate Academic Forum & "Study at DUT" Forum <span class="year-badge">2025</span></li>
+    <li>Outstanding Master's Thesis Award, DUT <span class="year-badge">2025</span></li>
+  </ul>
+</div>
+
+</div> <!-- End of CV content -->
+
+<script>
+function toggleCV() {
+  const cv = document.getElementById("cvContent");
+  if (cv.style.display === "none" || cv.style.display === "") {
+    cv.style.display = "block";
+  } else {
+    cv.style.display = "none";
+  }
+}
+</script>
